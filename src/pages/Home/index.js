@@ -1,9 +1,16 @@
 import React from "react";
+import Navbar from "./navbar";
 
 const HomePage = () => {
+
+
     return(
      <div>
-       <h1>oi</h1>
+        <div>
+          <Navbar/>
+        </div>
+
+       
 
      </div>
     )

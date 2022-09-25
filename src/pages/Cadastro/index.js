@@ -27,7 +27,7 @@ const CadastroUsuario = () => {
             return
         }
 
-        alert("usuario cadastrado com sucesso");
+        alert("empresa cadastrado com sucesso");
         navigate("/")
 
 
@@ -41,37 +41,7 @@ const CadastroUsuario = () => {
 
                 <div className="infos_Gerais">
                     <h2>Informações importantes da sua farmacia</h2>
-                     {/* <div> */}
-                        
-                        {/* <label htmlFor="RazãoSocial" className="RazãoSocial"> RazãoSocial</label>
-                            <input 
-                            required
-                            placeholder="digite a Razão Social da sua farmacia"
-                            name="RazãoSocial" type='name' className="RazãoSocial" 
-                            ></input>
-                    </div>
-
-                    <div>
-                        
-                        <label htmlFor="CNPJ" className="CNPJ"> CNPJ</label>
-                            <input 
-                            required
-                            placeholder="digite o CNPJ da sua farmacia"
-                            name="CNPJ" type='name' className="CNPJ" 
-                            ></input>
-                    </div> */}
-
-
-                    {/* <div>
-                        
-                        <label htmlFor="NomeFantasia" className="NomeFantasia"> NomeFantasia</label>
-                            <input 
-                            required
-                            placeholder="digite o NomeFantasia da sua farmacia"
-                            name="NomeFantasia" type='name' className="NomeFantasia" 
-                            ></input>
-                    </div> */}
-
+                
                     <div>
 
                     <label htmlFor="email" className="label_email"> Email</label>
@@ -81,8 +51,6 @@ const CadastroUsuario = () => {
                         name="email" type='email' className="email" 
                         value={email} 
                         onChange={(e)=> [setEmail(e.target.value) , setError('')] }
-                        
-                        
                         ></input>
                 </div>
 
@@ -95,31 +63,8 @@ const CadastroUsuario = () => {
                         name="email" type='email' className="email" 
                         value={emailConf} 
                         onChange={(e)=> [setEmailConf(e.target.value) , setError('')] }
-                        
-                        
                         ></input>
                 </div>
-
-                    {/* <div>
-                        
-                        <label htmlFor="Telefone" className="Telefone"> Telefone</label>
-                            <input 
-                            placeholder="digite o Telefone com DDD da sua farmacia"
-                            name="Telefone" type='number' className="Telefone" 
-                            ></input>
-                    </div>
-
-                    <div>
-                        
-                        <label htmlFor="Celular" className="Celular"> Celular</label>
-                            <input 
-                            required
-                            placeholder="digite o Celular da sua farmacia"
-                            name="Celular" type='name' className="Celular" 
-                            ></input>
-                    </div> */}
-
-
 
                 <div className="container_senha">
                         <label htmlFor="senha">Senha</label>
@@ -127,70 +72,22 @@ const CadastroUsuario = () => {
                         required 
                         name="senha" type="password" className="email"
                         value={senha} onChange={(e)=>[setSenha(e.target.value), 
-                        setError('')]}></input> 
-                </div>
-
-         
-                {/* </div>
-            
-                <div className="infos_localizacao">
-                    <h2>Informações Sobre a localização da sua farmacia</h2>
-                <div>
-                    <label htmlFor="CEP">CEP</label>
-                        <inpu
-                        required
-                        name="CEP"
-                        type="CEP" className="CEP"
-                        ></inpu>
-                    
+                        setError('')]}>
+                        </input> 
                 </div>
 
                 <div>
-                    <label htmlFor="Logradouro">Logradouro</label>
-                        <inpu
-                        required
-                        name="Logradouro"
-                        type="Logradouro" className="Logradouro"
-                        ></inpu>
-                    
-                </div>
-
-                <div>
-                    <label htmlFor="Numero">Numero</label>
-                        <inpu
-                        required
-                        name="Numero"
-                        type="Numero" className="Numero"
-                        ></inpu>
-                    
-                </div>
-
-                <div>
-                    <label htmlFor="Bairro">Bairro</label>
-                        <inpu
-                        required
-                        name="Bairro"
-                        type="Bairro" className="Bairro"
-                        ></inpu>
-                    
-                </div> */}
-
-                        <div>
                             <label>{error}</label>
                             <button  onClick={handleCadastro}>Cadastre-se</button>
-                        </div>  
-                        <div>
+                </div>  
+
+                <div>
                             <label>Ja tem uma conta?</label>
                             <Link to="/">Entre</Link>
-                        </div>
                 </div>
 
-           
+                </div>
 
-
-
-
-               
         </div>
 
        )

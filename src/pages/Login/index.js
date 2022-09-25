@@ -44,7 +44,6 @@ const handleLogin = () => {
                         value={email} 
                         onChange={(e)=> [setEmail(e.target.value) , setError('')] }
                         
-                        
                         ></input>
                 </div>
                 <div className="container_senha">
@@ -62,7 +61,7 @@ const handleLogin = () => {
                 <div>
 
                 <label>Não tem uma conta?</label>
-                    <Link to = "/cadastro"> Registre-se </Link>
+                    <Link to = "/informacoes"> Registre-se </Link>
                 </div>
             </form>    
         </div>
