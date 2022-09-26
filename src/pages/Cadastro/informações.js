@@ -2,6 +2,7 @@
 import React, {useEffect, useState}  from "react";
 import { Link } from "react-router-dom";
 import {useForm} from 'react-hook-form';
+import '../Cadastro/style.css'
 
 const InformaçõesGerais = () => {
 
@@ -105,178 +106,153 @@ const InformaçõesGerais = () => {
 
     return (
 
-     <div className="pai">
+     <div className="corpo">
 
         <form onSubmit={handleAddFarmacia}>
 
-            <h1>Cadastro de nova Farmácia</h1>
+            <h1 className="titulo">Cadastro de nova Farmácia</h1>
 
-                <h2>Informações sobre a sua Farmacia</h2>
+                <h2 className="titulo" >Informações sobre a sua Farmacia</h2>
 
-            <div>
+            <div className="cadastro">
                  <label htmlFor="RazãoSocial" className="RazãoSocial"> Razão Social: </label>
                        
                         <input 
                         required
                         placeholder="digite a Razão Social da sua farmacia"
-                        name="RazãoSocial" type='text' className="RazãoSocial" 
+                        name="RazãoSocial" type='text'  className="input" 
                         onChange={(e)=>setRazaoSocial(e.target.value)}
                         value={razaoSocial}
                         ></input>
-           </div>
-
-           <div>
+          
 
                 <label htmlFor="CNPJ" className="CNPJ"> CNPJ</label>
                         <input 
                         required
                         placeholder="digite o CNPJ da sua farmacia"
-                        name="text" type='name' className="CNPJ" 
+                        name="text" type='name' className="input" 
                         onChange={(e)=> setCnpj(e.target.value)}
                         value = {cnpj}
                         ></input>
-           </div>
-
-           <div>
-   
-                <label htmlFor="NomeFantasia" className="NomeFantasia"> NomeFantasia</label>
+        
+                <label htmlFor="NomeFantasia" className="input"> NomeFantasia</label>
                         <input 
                         required
                         placeholder="digite o NomeFantasia da sua farmacia"
-                        name="NomeFantasia" type='text' className="NomeFantasia" 
+                        name="NomeFantasia" type='text'  className="input" 
                         onChange={(e)=> setNomeFantasia(e.target.value)}
                         value = {nomeFantasia}
                         ></input>
-           </div>
-
-           <div>
+          
                 <label htmlFor="Telefone" className="Telefone"> Telefone</label>
                         <input 
                         placeholder="digite o Telefone com DDD da sua farmacia"
-                        name="Telefone" type='text' className="Telefone" 
+                        name="Telefone" type='text'  className="input" 
                         onChange={(e)=> setTelefone(e.target.value)}
                         value = {telefone}
                         ></input>
-           </div>
-
-           <div>
+           
                 <label htmlFor="Celular" className="Celular"> Celular</label>
                         <input 
                         required
                         placeholder="digite o Celular da sua farmacia"
-                        type='text' className="Celular" 
+                        type='text'  className="input" 
                         onChange={(e)=> setCelular(e.target.value)}
                         value = {celular}
                         ></input>
-            </div>
+          
 
-                <h2>Informações Sobre a localização da sua Farmacia</h2>
+               
             
-            <div>
+           
                 <label htmlFor="CEP">CEP</label>
                     <input
                     required
-                    type="text" className="CEP"
+                    type="text"  className="input" 
                     {...register("cep")}
                     onBlur={checkCEP}
                     onChange={(e)=> setCep(e.target.value)}
                     value = {cep}
                     ></input>
-            </div>
-
-            <div>
+           
            
                 <label htmlFor="Logradouro">Logradouro</label>
                     <input
                     required
-                    type="text" className="Logradouro"
+                    type="text"  className="input" 
                     {...register("logradouro")}
                     onChange={(e)=> setLogradouro(e.target.value)}
                         value = {logradouro}
                     ></input>
-            </div>
-
-            <div>
+            
           
                 <label htmlFor="Numero">Numero</label>
                     <input
                     required
                     name="Numero"
-                    type="text" className="Numero"
+                    type="text"  className="input" 
                     onChange={(e)=> setNumero(e.target.value)}
                     value = {numero}
                     ></input>
-            </div>
-
-            <div>
+           
                 <label htmlFor="Bairro">Bairro</label>
                     <input
                     required
                     name="Bairro"
-                    type="Bairro" className="Bairro"
+                    type="Bairro"  className="input" 
                     onChange={(e)=> setBairro(e.target.value)}
                     value = {bairro}
                     ></input>
-            </div>
-
-            <div>
-         
+          
                 <label htmlFor="Cidade">Cidade</label>
                     <input
                     required
                     name="Cidade"
-                    type="Cidade" className="Cidade"
+                    type="Cidade" className="input" 
                     onChange={(e)=> setCidade(e.target.value)}
                     value = {cidade}
                     ></input>
-            </div>
-
-            <div>
+       
                 <label htmlFor="Estado">Estado</label>
                     <input
                     required
                     name="Estado"
-                    type="Estado" className="Estado"
+                    type="Estado"  className="input" 
                     onChange={(e)=> setEstado(e.target.value)}
                     value = {estado}
                     ></input>
-            </div>
-
-            <div>
+         
                 <label htmlFor="Complemento">Complemento</label>
                     <input
                     name="Complemento"
-                    type="Complemento" className="Complemento"
+                    type="Complemento" className="input" 
                     onChange={(e)=> setComplemento(e.target.value)}
                     value = {Complemento}
                     ></input>
-            </div>
-
-            <div>
+          
                 <label htmlFor="Geolocalização">Geolocalização</label>
                     <input
                     required
-                    type="text" className="Latitude"
+                    type="text"  className="input" 
                     onChange={(e)=> setLatitude(e.target.value)}
                     value = {latitude}
                     ></input>
 
                     <input
                     required
-                    type="text" className="Longitude"
+                    type="text"  className="input" 
                     onChange={(e)=> setLongitude(e.target.value)}
                     value = {longitude}
                     ></input>
-            </div>
-
-            <div>
+           
                
             
                 <button onClick={chamarProximo}>Próximo</button>
+
+            <input type='submit' onSubmit={handleSubmit}></input>
                  
             </div>
 
-            <input type='submit' onSubmit={handleSubmit}></input>
 
          </form>
 
