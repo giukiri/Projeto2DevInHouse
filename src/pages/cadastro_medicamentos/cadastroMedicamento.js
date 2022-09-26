@@ -1,55 +1,135 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { set } from "react-hook-form";
+
+const pegarDoLS = () => {
+    const data = localStorage.getItem('medicamentos')
+    if(data){
+        return JSON.parse(data);
+    }
+    else{
+        return [];
+    }
+}
+
 const CadastroMedicamento = () => {
+
+    const [medicamentos,setMedicamentos] = useState([pegarDoLS])
+
+    const [nomeMedicamento, setNomeMedicamento] = useState("");
+    const [nomeLaboratorio, setNomeLaboratorio] = useState("");
+    const [dosagemMedicamento, setDosagemMedicamento] = useState("");
+    const [descricaoMedicamento, setDescricaoMedicamento] = useState("");
+    const [precoMedicamento, setPrecoMedicamento] = useState("");
+    const [tipoMedicamento,setTipoMedicamento] = useState("")
+
+    const handleAddMedicamento = (e) => {
+        e.preventDefault();
+
+        let medicamento = {
+            nomeMedicamento,
+            nomeLaboratorio,
+            dosagemMedicamento,
+            descricaoMedicamento,
+            precoMedicamento,
+            tipoMedicamento
+        }
+
+        setMedicamentos([...medicamentos,medicamento]);
+        setNomeMedicamento('');
+        setNomeLaboratorio('');
+        setDosagemMedicamento('');
+        setDescricaoMedicamento('');
+        setPrecoMedicamento('')
+        setTipoMedicamento('')
+
+    }
+
+    useEffect(()=>{
+        localStorage.setItem('medicamentos',JSON.stringify(medicamentos));
+
+    },[medicamentos])
+
     return(
         <div>
-            <form>
+            <form onSubmit={handleAddMedicamento}>
                 <div>
                     <label>Nome do Medicamento:</label>
-                    <input type = 'text' >
+                    <input 
+                    type = 'text'
+                    onChange={(e)=> setNomeMedicamento(e.target.value)}
+                    value={nomeMedicamento} >
                     </input>
                 </div>
                 <div>
                     <label>Nome do laboratório</label>
-                    <input type = 'text'>
+                    <input type = 'text'
+                    onChange={(e)=> setNomeLaboratorio(e.target.value)}
+                    value={nomeLaboratorio}>
                     </input>
                 </div>
                 <div>
                     <label>Dosagens do Medicamento</label>
-                    <input type = 'text'>
+                    <input 
+                    type = 'text'
+                    onChange={(e)=> setDosagemMedicamento(e.target.value)}
+                    value={dosagemMedicamento}>
                     </input>
                 </div>
                 <div>
                     <label>Descrição do Medicamento</label>
-                    <textarea>
+                    <textarea 
+                    onChange={(e)=> setDescricaoMedicamento(e.target.value)}
+                    value={descricaoMedicamento}>
                     </textarea>
                 </div>
                 <div>
                     <label>Preço unitário</label>
-                    <input type = 'text'>
+                    <input 
+                    type = 'text'
+                    onChange={(e)=> setPrecoMedicamento(e.target.value)}
+                    value={precoMedicamento}>
                     </input>
                 </div>
                 <div>
                     <label> Tipo de Medicamento</label>
                    
-                        <select>
+                        <select
+                        onChange={(e)=> setTipoMedicamento(e.target.value)}
+                        value={tipoMedicamento}>
                             <option></option>
                             <option>Referência</option>
                             <option>Genérico</option>
                             <option>Similar</option>
                             <option>Equivalente</option>
-
-                        </select>
-
-                        <select>
-                            <option></option>
                             <option>Controlado</option>
-                            <option>comum</option>
+                          
                         </select>
                    
                 </div>
 
-                <input type = 'submit'></input>
+                <button type = 'submit'>Enviar Medicamento</button>
             </form>
+
+            <div className="container">
+                {medicamentos.length>0&&<>
+                <div className="post">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome medicamento</th>
+                                <th>Nome do laboratório</th>
+                                <th>Descrição do Medicamento</th>
+                                <th>Dosagem do medicamento</th>
+                                <th>Preço do medicamento</th>
+                                <th>Tipo de medicamento</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                </>}
+                {medicamentos.length < 1 && <div>Nenhum medicamento foi registrado até agora</div>}
+            </div>
         </div>
     )
 }

@@ -51,12 +51,12 @@ const InformaçõesGerais = () => {
 
     },[usuarioInfos])
 
-    useEffect (()=>{
-        if(localStorage.getItem('informações') !== null){
-            setUsuarioInfos(JSON.parse(localStorage.getItem('informações')))
-        }
+    // useEffect (()=>{
+    //     if(localStorage.getItem('informações') !== null){
+    //         setUsuarioInfos(JSON.parse(localStorage.getItem('informações')))
+    //     }
 
-    },[])
+    // },[])
 
 
     const {register,handleSubmit,setValue,setFocus} = useForm();

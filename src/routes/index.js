@@ -7,7 +7,7 @@ import useAuth from "../hook/useAuth";
 import InformaçõesGerais from "../pages/Cadastro/informações";
 import Mapa from "../pages/mapa/mapa";
 import CadastroMedicamento from "../pages/cadastro_medicamentos/cadastroMedicamento";
-import EstoqueMedicamentos from "../pages/estoque/estoqueMedicamentos";
+import ListaMedicamentos from "../pages/lista/listaMedicamentos";
 
 const RotasApp = () => {
 
@@ -28,7 +28,7 @@ const RotasApp = () => {
                     <Route exact path="/informacoes" element={<InformaçõesGerais/>} />
                     <Route path="*" element={<Login />} />
                     <Route exact path="/cadastroMedicamentos" element={<CadastroMedicamento/>}/>
-                    <Route exact path="/estoque" element={<EstoqueMedicamentos/>}/>
+                    <Route exact path="/lista" element={<ListaMedicamentos/>}/>
                     <Route exact path="/mapa" element={<Mapa/>} />
                 </Routes>
             </Fragment>

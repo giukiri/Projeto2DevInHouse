@@ -19,7 +19,7 @@ function Navbar () {
                 </li >
                 
                 <li className="item">
-                    <Link to='/estoque'>Estoque de Medicamentos</Link>
+                    <Link to='/lista'>Lista de Medicamentos</Link>
                 </li>
                 
                 <li className="item">
