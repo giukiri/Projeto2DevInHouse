@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { set } from "react-hook-form";
-import { View } from "./View";
+import { Link } from "react-router-dom";
+
 
 const pegarDoLS = () => {
     const data = localStorage.getItem('medicamentos')
@@ -111,6 +111,7 @@ const CadastroMedicamento = () => {
                 <button type = 'submit'>Enviar Medicamento</button>
             </form>
 
+            <Link to='/home'>Voltar para Home</Link>
         </div>
     )
 }
