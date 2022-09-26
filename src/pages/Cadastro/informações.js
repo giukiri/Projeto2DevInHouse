@@ -5,6 +5,19 @@ import {useForm} from 'react-hook-form';
 
 const InformaçõesGerais = () => {
 
+    const RecuperarlocalStorage = () => {
+        const data = localStorage.getItem('infos')
+        if(data){
+            return JSON.parse(data);
+        }
+        else{
+            return [];
+        }
+    }
+    
+
+    const [infos,setInfos] = useState ([RecuperarlocalStorage])
+
     const [razaoSocial,setRazaoSocial] =useState();
     const [cnpj,setCnpj] = useState();
     const [nomeFantasia,setNomeFantasia] = useState();
@@ -20,50 +33,57 @@ const InformaçõesGerais = () => {
     const [latitude,setLatitude] =useState ();
     const [longitude,setLongitude] = useState();
 
-    const [Infos,setInfos] = useState ({
     
-            razaoSocial: " " , 
-            cnpj : " " ,
-            nomeFantasia: " ",
-            telefone: " ",
-            celular: " ",
-            cep: " ",
-            logradouro: " ",
-            numero: " ",
-            bairro: " ",
-            cidade: " ",
-            estado: " ",
-            Complemento: " ",
-            latitude: " ",
-            longitude: ""
+    const handleAddFarmacia = (e) => {
+        e.preventDefault();
+
+        let farmacia ={
+            razaoSocial,
+            cnpj ,
+            nomeFantasia,
+            telefone,
+            celular,
+            cep,
+            logradouro,
+            numero,
+            bairro,
+            cidade,
+            estado,
+            Complemento,
+            latitude,
+            longitude
     }
 
+    setInfos([...infos,farmacia]);
+    setRazaoSocial('');
+    setCnpj('');
+    setNomeFantasia('');
+    setTelefone('');
+    setCelular('');
+    setCep('');
+    setLogradouro('')
+    setNumero('');
+    setBairro('');
+    setCidade('')
+    setEstado('');
+    setComplemento('');
+    setLatitude('');
+    setLongitude('')
+
+    
+    }
+
+   useEffect(()=>{
+        localStorage.setItem('infos',JSON.stringify(infos));
+
+    },[infos])
+
   
-
-    );
-
-
-    const [usuarioInfos,setUsuarioInfos] = useState()
-
-
-    useEffect (()=> {
-        localStorage.setItem("informações" , JSON.stringify(usuarioInfos))
-
-    },[usuarioInfos])
-
-    // useEffect (()=>{
-    //     if(localStorage.getItem('informações') !== null){
-    //         setUsuarioInfos(JSON.parse(localStorage.getItem('informações')))
-    //     }
-
-    // },[])
 
 
     const {register,handleSubmit,setValue,setFocus} = useForm();
 
-    const onSubmit = (e) => {
-       
-    }
+  
 
     const checkCEP = (e) =>{
     const cep = e.target.value.replace(/\D/g, '');
@@ -87,7 +107,7 @@ const InformaçõesGerais = () => {
 
      <div className="pai">
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleAddFarmacia}>
 
             <h1>Cadastro de nova Farmácia</h1>
 
@@ -264,6 +284,8 @@ const InformaçõesGerais = () => {
          
 )
             };
+
+        
 
 
             export default InformaçõesGerais;
