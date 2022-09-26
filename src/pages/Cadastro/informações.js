@@ -1,24 +1,63 @@
 
-import React, {useState}  from "react";
+import React, {useEffect, useState}  from "react";
 import { Link } from "react-router-dom";
 import {useForm} from 'react-hook-form';
 
 const InformaçõesGerais = () => {
 
-     const [razaoSocial, setRazaoSocial] = useState("");
-     const [cnpj,setCnpj] = useState("");
-     const [nomeFantasia,setNomeFantasia] = useState("");
-     const [telefone,setTelefone] = useState("");
-     const [celular,setCelular] = useState("");
-     const [cep,setCep] = useState("");
-     const [logradouro,setLogradouro] = useState("");
-     const [numero,setNumero] = useState("");
-     const [bairro,setBairro] = useState("");
-     const [cidade,setCidade] = useState("");
-     const [estado,setEstado] = useState("");
-     const [Complemento,setComplemento] = useState("");
-     const [latitude,setLatitude] = useState("");
-     const [longitude,setLongitude] = useState("");
+    const [razaoSocial,setRazaoSocial] =useState();
+    const [cnpj,setCnpj] = useState();
+    const [nomeFantasia,setNomeFantasia] = useState();
+    const [telefone,setTelefone] =useState();
+    const [celular,setCelular] =useState();
+    const [cep,setCep] =useState();
+    const [logradouro,setLogradouro] = useState();
+    const [numero, setNumero] = useState();
+    const [ bairro,setBairro] = useState();
+    const [cidade,setCidade]= useState();
+    const [estado,setEstado]= useState();
+    const [Complemento,setComplemento] =useState();
+    const [latitude,setLatitude] =useState ();
+    const [longitude,setLongitude] = useState();
+
+    const [Infos,setInfos] = useState ({
+    
+            razaoSocial: " " , 
+            cnpj : " " ,
+            nomeFantasia: " ",
+            telefone: " ",
+            celular: " ",
+            cep: " ",
+            logradouro: " ",
+            numero: " ",
+            bairro: " ",
+            cidade: " ",
+            estado: " ",
+            Complemento: " ",
+            latitude: " ",
+            longitude: ""
+    }
+
+  
+
+    );
+
+
+    const [usuarioInfos,setUsuarioInfos] = useState()
+
+
+    useEffect (()=> {
+        localStorage.setItem("informações" , JSON.stringify(usuarioInfos))
+
+    },[usuarioInfos])
+
+    useEffect (()=>{
+        if(localStorage.getItem('informações') !== null){
+            setUsuarioInfos(JSON.parse(localStorage.getItem('informações')))
+        }
+
+    },[])
+
 
     const {register,handleSubmit,setValue,setFocus} = useForm();
 
@@ -43,29 +82,6 @@ const InformaçõesGerais = () => {
     }
 
 
-
-    // const salvarFormulario = () => {
-    //     const usuarioInfos = 
-    //     const        
-    //     ("Razão Social: " , JSON.stringify(razaoSocial)),
-    //     ("CNPJ: " , cnpj),
-    //     ("Nome Fantasia: ", nomeFantasia),
-    //     ("Telefone: " , telefone),
-    //     ("Celular : " , celular),
-    //     ("CEP: ", cep),
-    //     ("Logradouro: " , logradouro),
-    //     ("Numero: ", numero),
-    //     ("Bairro: ", bairro),
-    //     ("Cidade: ",cidade),
-    //     ("Estado: ",estado),
-    //     ("Complemento :" , Complemento),
-    //     ("Geolocalização: ", latitude,longitude)
-    // );
-    
-    //     localStorage.setItem( "usuario_infos", JSON.stringify(newUsuario)
-
-     
-    // }
 
     return (
 
@@ -219,12 +235,14 @@ const InformaçõesGerais = () => {
             <div>
                 <label htmlFor="Geolocalização">Geolocalização</label>
                     <input
+                    required
                     type="text" className="Latitude"
                     onChange={(e)=> setLatitude(e.target.value)}
                     value = {latitude}
                     ></input>
 
                     <input
+                    required
                     type="text" className="Longitude"
                     onChange={(e)=> setLongitude(e.target.value)}
                     value = {longitude}
