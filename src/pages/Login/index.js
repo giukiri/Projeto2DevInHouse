@@ -50,6 +50,7 @@ const handleLogin = () => {
                         <label htmlFor="senha">Senha</label>
                         <input
                         required 
+                        minLength={8}
                         name="senha" type="password" className="email"
                         value={senha} onChange={(e)=>[setSenha(e.target.value), 
                         setError('')]}></input> 
