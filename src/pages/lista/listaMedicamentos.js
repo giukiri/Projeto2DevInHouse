@@ -4,7 +4,7 @@ import CadastroMedicamento from "../cadastro_medicamentos/cadastroMedicamento";
 
 const ListaMedicamentos = () => {
 
-    const medicamentos = localStorage.getItem('medicamento');
+    const medicamentos = localStorage.getItem('medicamentos',medicamentos);
 
     return (
         
@@ -21,7 +21,7 @@ const ListaMedicamentos = () => {
                         <th>Dosagem do medicamento</th>
                         <th>Preço do medicamento</th>
                         <th>Tipo de medicamento</th>
-                        <th>Delete</th>
+                        <th >Delete</th>
                     </tr>
                 </thead>
                 <tbody>

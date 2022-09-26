@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { set } from "react-hook-form";
+import { View } from "./View";
 
 const pegarDoLS = () => {
     const data = localStorage.getItem('medicamentos')
@@ -110,26 +111,6 @@ const CadastroMedicamento = () => {
                 <button type = 'submit'>Enviar Medicamento</button>
             </form>
 
-            <div className="container">
-                {medicamentos.length>0&&<>
-                <div className="post">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nome medicamento</th>
-                                <th>Nome do laboratório</th>
-                                <th>Descrição do Medicamento</th>
-                                <th>Dosagem do medicamento</th>
-                                <th>Preço do medicamento</th>
-                                <th>Tipo de medicamento</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                </>}
-                {medicamentos.length < 1 && <div>Nenhum medicamento foi registrado até agora</div>}
-            </div>
         </div>
     )
 }
