@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link} from 'react-router-dom'
 import useAuth from "../../hook/useAuth";
+import '../Login/style.css'
 
 
 function Login (){
@@ -29,44 +30,45 @@ const handleLogin = () => {
  };
 
     return(
-    
-       <div id="login" className="login">
+   <div className="body">
+       <div id="login" className="login_tela">
          <form>
             <h1 className="title_login">Login</h1>
-          
-                <div className="container_email">
+                
 
-                    <label htmlFor="email" className="label_email"> Email</label>
+                    <label htmlFor="email" className='email'> Email</label>
+                    <br/>
                         <input 
+                        
                         required
                         placeholder="usuario@email.com"
-                        name="email" type='email' className="email" 
+                        name="email" type='email' className="input" 
                         value={email} 
                         onChange={(e)=> [setEmail(e.target.value) , setError('')] }
-                        
                         ></input>
-                </div>
-                <div className="container_senha">
-                        <label htmlFor="senha">Senha</label>
+               
+                        <br/>
+                        <label className="senha" htmlFor="senha">Senha</label>
+                        <br/>
                         <input
                         required 
                         minLength={8}
-                        name="senha" type="password" className="email"
+                        name="senha" type="password" className="input"
                         value={senha} onChange={(e)=>[setSenha(e.target.value), 
                         setError('')]}></input> 
-                </div>
-                    <label>{error}</label>
-                <div>
-                    <button type='submit' onClick={handleLogin}>Acessar</button>
-                </div>
-                <div>
-
-                <label>Não tem uma conta?</label>
-                    <Link to = "/informacoes"> Registre-se </Link>
-                </div>
+                         <br/>
+                        <label>{error}</label>
+                        <br/>
+                        <button className = 'btn' type='submit' onClick={handleLogin}>Acessar</button>
+                        <br/>
+                        <br/>
+                        <label className="frase">Não tem uma conta?</label>
+                        <br/>
+                            <Link className="link1" to = "/informacoes" > Registre-se </Link>
+               
             </form>    
         </div>
-            
+    </div>     
    
     )
 }
