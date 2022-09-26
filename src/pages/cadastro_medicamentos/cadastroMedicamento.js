@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import '../cadastro_medicamentos/style.css'
 
 
 const pegarDoLS = () => {
@@ -51,50 +52,52 @@ const CadastroMedicamento = () => {
     },[medicamentos])
 
     return(
-        <div>
+        <div className="corpo">
+            <h1 className="titulo ">Cadastre um Medicamento</h1>
             <form onSubmit={handleAddMedicamento}>
-                <div>
+                <div className="cadastro">
                     <label>Nome do Medicamento:</label>
                     <input 
+                    className="input"
                     type = 'text'
                     onChange={(e)=> setNomeMedicamento(e.target.value)}
                     value={nomeMedicamento} >
                     </input>
-                </div>
-                <div>
+                
                     <label>Nome do laboratório</label>
                     <input type = 'text'
+                    className="input"
                     onChange={(e)=> setNomeLaboratorio(e.target.value)}
                     value={nomeLaboratorio}>
                     </input>
-                </div>
-                <div>
+                
                     <label>Dosagens do Medicamento</label>
                     <input 
+                    className="input"
                     type = 'text'
                     onChange={(e)=> setDosagemMedicamento(e.target.value)}
                     value={dosagemMedicamento}>
                     </input>
-                </div>
-                <div>
+                
                     <label>Descrição do Medicamento</label>
                     <textarea 
+                    className="input"
                     onChange={(e)=> setDescricaoMedicamento(e.target.value)}
                     value={descricaoMedicamento}>
                     </textarea>
-                </div>
-                <div>
+               
                     <label>Preço unitário</label>
                     <input 
+                    className="input"
                     type = 'text'
                     onChange={(e)=> setPrecoMedicamento(e.target.value)}
                     value={precoMedicamento}>
                     </input>
-                </div>
-                <div>
+                
                     <label> Tipo de Medicamento</label>
                    
                         <select
+                        className="input"
                         onChange={(e)=> setTipoMedicamento(e.target.value)}
                         value={tipoMedicamento}>
                             <option></option>
@@ -105,13 +108,16 @@ const CadastroMedicamento = () => {
                             <option>Controlado</option>
                           
                         </select>
-                   
+
+                        <button type = 'submit'>Enviar Medicamento</button>
+                        <br/>
+                        <Link to='/home'>Voltar para Home</Link>
                 </div>
 
-                <button type = 'submit'>Enviar Medicamento</button>
+             
             </form>
 
-            <Link to='/home'>Voltar para Home</Link>
+          
         </div>
     )
 }
