@@ -17,7 +17,8 @@ const InformaçõesGerais = () => {
     }
     
 
-    const [infos,setInfos] = useState ([RecuperarlocalStorage])
+    // RecuperarlocalStorage é uma função, então deve ser chamada, além disso não pode ser colocada dentro de um aray
+    const [infos,setInfos] = useState (RecuperarlocalStorage())
 
     const [razaoSocial,setRazaoSocial] =useState();
     const [cnpj,setCnpj] = useState();
@@ -71,6 +72,7 @@ const InformaçõesGerais = () => {
     setLatitude('');
     setLongitude('')
 
+    // adicionar farmácia deveria estar aqui, não em um useEffect
     
     }
 

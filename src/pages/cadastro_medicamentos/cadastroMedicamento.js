@@ -4,7 +4,7 @@ import '../cadastro_medicamentos/style.css'
 
 
 const pegarDoLS = () => {
-    const data = localStorage.getItem('medicamentos')
+    const data = localStorage.getItem('medicamentos') 
     if(data){
         return JSON.parse(data);
     }
@@ -14,8 +14,8 @@ const pegarDoLS = () => {
 }
 
 const CadastroMedicamento = () => {
-
-    const [medicamentos,setMedicamentos] = useState([pegarDoLS])
+    // como pegarDoLS é uma função, ela deve ser chamada aqui, e como ela traz um array, não pode ser colocada dentro de outro array
+    const [medicamentos,setMedicamentos] = useState(pegarDoLS())
 
     const [nomeMedicamento, setNomeMedicamento] = useState("");
     const [nomeLaboratorio, setNomeLaboratorio] = useState("");

@@ -21,6 +21,7 @@ const CadastroUsuario = () => {
         }
 
         const res = CadastroUsuario(email,senha);
+        console.log({res})
 
         if(res){
             setError(res);
