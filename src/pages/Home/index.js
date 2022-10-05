@@ -10,7 +10,8 @@ const HomePage = () => {
       <div>
 
         <div>
-          <Navbar/>
+          {/* coloquei no componente de rotas para facilitar a correção */}
+          {/* <Navbar/> */}
           </div>
         <div className="corpo">
         <div>

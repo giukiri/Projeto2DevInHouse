@@ -64,7 +64,8 @@ const handleLogin = () => {
                         <br/>
                         <label className="frase">Não tem uma conta?</label>
                         <br/>
-                            <Link className="link1" to = "/informacoes" > Registre-se </Link>
+                        {/* precisei alterar essa rota, pois não ia para o cadastro de usuário, o que não permitia usar a aplicação */}
+                            <Link className="link1" to = "/cadastro" > Registre-se </Link>
                
             </form>    
         </div>

@@ -21,6 +21,11 @@ function Navbar () {
                 <li className="item">
                     <Link to='/lista'>Lista de Medicamentos</Link>
                 </li>
+
+                {/* inclui a rota de cadastro de Farmácias para facilitar a correção */}
+                <li className="item">
+                    <Link to='/informacoes'>Cadastro de Farmácias</Link>
+                </li>
                 
                 <li className="item">
                     <Link to='/mapa'>Mapa</Link>
